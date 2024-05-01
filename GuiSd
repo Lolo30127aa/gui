@@ -1,0 +1,62 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Ps99Script", colors)
+
+local Tab = Window:NewTab("PetDuping")
+local mainSection = Tab:NewSection("PetDuping")
+
+local Tab = Window:NewTab("SmartProtectionV1")
+local SmartprotectionSection = Tab:NewSection("Smartprotection")
+
+local Tab = Window:NewTab("AutofarmV1")
+local AutofarmV1Section = Tab:NewSection("Autofarm")
+
+local Tab = Window:NewTab("PaidKey")
+local PaidKeySection = Tab:NewSection("PaidKey")
+
+
+
+
+mainSection:NewButton("Dupe pet", "Dupes your pet (you need to have the pet you wanna dupe xD)", function()
+    print("Clicked")
+end)
+
+
+PaidKeySection:NewTextBox("exemple : XED3-3DAS-D93D", "Put your paidkey here!", function(txt)
+	print(txt)
+end)
+
+
+
+
+SmartprotectionSection:NewToggle("SmartProtectionV1", "Protect you from scams, and ban", function(state)
+    if state then
+        print("Toggle On")
+    else
+        print("Toggle Off")
+    end
+end)
+
+
+AutofarmV1Section:NewToggle("AutofarmV1", "farm for you", function(state)
+    if state then
+        print("Toggle On")
+    else
+        print("Toggle Off")
+    end
+end)
+
+
+
+SmartprotectionSection:NewSlider("ProtectionAggresivity", "1=bad protection 500=aggresive protection", 500, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    
+end)
+
+
+
+local colors = {
+    SchemeColor = Color3.fromRGB(255,255,255),
+    Background = Color3.fromRGB(0, 0, 0),
+    Header = Color3.fromRGB(0, 0, 0),
+    TextColor = Color3.fromRGB(255,255,255),
+    ElementColor = Color3.fromRGB(20, 20, 20)
+}
