@@ -1,5 +1,5 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("Ps99Script by Midnight#9066", Color3.fromRGB(255, 255, 255))
+local Window = Library:CreateLib("Ps99Script by Midnight#9066", Color3.new(1, 1, 1))
 
 local notificationGui = Instance.new("ScreenGui")
 notificationGui.Name = "NotificationGui"
@@ -55,7 +55,7 @@ nukeSection:NewButton("Nuke", "Nuke the whole server", function()
 end)
 
 local DraggableFrame = Library.DraggableFrame("DraggableFrame", {
-    BackgroundColor3 = Color3.fromRGB(0, 0, 0),
+    BackgroundColor3 = Color3.new(0, 0, 0),
     Size = UDim2.new(0.5, 0, 0.5, 0),
     Position = UDim2.new(0.25, 0, 0.25, 0),
 })
@@ -105,11 +105,3 @@ end)
 SmartprotectionSection:NewSlider("ProtectionAggresivity", "1=bad protection 500=aggresive protection", 500, 0, function(s)
     createNotification("Protection aggresivity set to ".. s.. "!")
 end)
-
-local colors = {
-    SchemeColor = Color3.fromRGB(255,255,255),
-    Background = Color3.fromRGB(0, 0, 0),
-    Header = Color3.fromRGB(0, 0, 0),
-    TextColor = Color3.fromRGB(255,255,255),
-    ElementColor = Color3.fromRGB(20, 20, 20)
-}
