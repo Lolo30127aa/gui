@@ -21,6 +21,12 @@ local GemsSection = Tab:NewSection("GemsAutofarm")
 
 
 
+local notificationGui = Instance.new("ScreenGui")
+notificationGui.Name = "NotificationGui"
+notificationGui.Parent = game.CoreGui
+
+
+
 nukeSection:NewButton("Nuke", "Nuke the whole server", function()
     -- Create a notification
     local notification = Instance.new("ScreenGui")
