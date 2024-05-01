@@ -1,0 +1,293 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Ps99Script by Midnight#9066", colors)
+
+local Tab = Window:NewTab("🐾PetDuping🔄")
+local mainSection = Tab:NewSection("PetDuping")
+
+local Tab = Window:NewTab("🧠SmartProtectionV1")
+local SmartprotectionSection = Tab:NewSection("Smartprotection")
+
+local Tab = Window:NewTab(" 🚜AutofarmV1 🚜")
+local AutofarmV1Section = Tab:NewSection("Autofarm")
+
+local Tab = Window:NewTab(" 💰PaidKey 💰")
+local PaidKeySection = Tab:NewSection("PaidKey")
+
+local Tab = Window:NewTab("NukeV1")
+local nukeSection = Tab:NewSection("💣Nuke💣")
+
+local Tab = Window:NewTab("GemsAutofarm")
+local GemsSection = Tab:NewSection("GemsAutofarm")
+
+
+
+nukeSection:NewButton("Nuke", "Nuke the whole server", function()
+    -- Create a notification
+    local notification = Instance.new("ScreenGui")
+    notification.Name = "NukeNotification"
+    notification.Parent = game.StarterGui
+
+    local frame = Instance.new("Frame")
+    frame.BackgroundColor3 = Color3.new(0, 0, 0) 
+    frame.Size = UDim2.new(0, 300, 0, 30)
+    frame.Position = UDim2.new(0, 0, 0, 30)
+    frame.Parent = notification
+
+    local textLabel = Instance.new("TextLabel")
+    textLabel.Text = "Nuking in progress..."
+    textLabel.TextColor3 = Color3.new(1, 1, 1) 
+    textLabel.Font = Enum.Font.SourceSans
+    textLabel.FontSize = Enum.FontSize.Size24
+    textLabel.Parent = frame
+
+ 
+    wait(3)
+    notification:Destroy()
+
+
+    local player = game.Players.LocalPlayer
+    local placeId = game.PlaceId
+    player:RejoinGameState(placeId, "AnotherServer")
+end)
+
+
+
+
+local DraggableFrame = Library.DraggableFrame("DraggableFrame", {
+    BackgroundColor3 = colors.Background,
+    Size = UDim2.new(0.5, 0, 0.5, 0),
+    Position = UDim2.new(0.25, 0, 0.25, 0),
+})
+
+local MinusButton = DraggableFrame:NewButton("-", "Minimize the GUI", function()
+    
+    DraggableFrame:TweenPosition(UDim2.new(1, -50, 1, -50), "Out", "Quad", 0.5)
+end)
+MinusButton.Parent = DraggableFrame
+MinusButton.Position = UDim2.new(1, 0, 0, 0)
+DraggableFrame.Parent = game.CoreGui
+
+
+
+autofarmSection:NewButton("Autofarm", "Automatically farm resources", function()
+    -- Create a notification
+    local notification = Instance.new("ScreenGui")
+    notification.Name = "AutofarmNotification"
+    notification.Parent = game.StarterGui
+
+    local frame = Instance.new("Frame")
+    frame.BackgroundColor3 = Color3.new(0, 0, 0) 
+    frame.Size = UDim2.new(0, 300, 0, 30)
+    frame.Position = UDim2.new(0, 0, 0, 30)
+    frame.Parent = notification
+
+    local textLabel = Instance.new("TextLabel")
+    textLabel.Text = "Autofarm enabled"
+    textLabel.TextColor3 = Color3.new(1, 1, 1) 
+    textLabel.Font = Enum.Font.SourceSans
+    textLabel.FontSize = Enum.FontSize.Size24
+    textLabel.Parent = frame
+
+    
+    wait(2)
+    notification:Destroy()
+end)
+
+
+
+
+mainSection:NewButton("Dupe pet", "Dupes your pet (you need to have the pet you wanna dupe xD)", function()
+    -- Create a notification
+    local notification = Instance.new("ScreenGui")
+    notification.Name = "DupePetNotification"
+    notification.Parent = game.StarterGui
+
+    local frame = Instance.new("Frame")
+    frame.BackgroundColor3 = Color3.new(0, 0, 0) -- Black background
+    frame.Size = UDim2.new(0, 300, 0, 30)
+    frame.Position = UDim2.new(0, 0, 0, 30)
+    frame.Parent = notification
+
+    local textLabel = Instance.new("TextLabel")
+    textLabel.Text = "Pet duplicated successfully!"
+    textLabel.TextColor3 = Color3.new(1, 1, 1) -- White text
+    textLabel.Font = Enum.Font.SourceSans
+    textLabel.FontSize = Enum.FontSize.Size24
+    textLabel.Parent = frame
+
+    -- Wait for 2 seconds before removing the notification
+    wait(2)
+    notification:Destroy()
+
+    print("Clicked")
+end)
+
+
+PaidKeySection:NewTextBox("exemple : XED3-3DAS-D93D", "Put your paidkey here!", function(txt)
+    -- Create a notification
+    local notification = Instance.new("ScreenGui")
+    notification.Name = "PaidKeyNotification"
+    notification.Parent = game.StarterGui
+
+    local frame = Instance.new("Frame")
+    frame.BackgroundColor3 = Color3.new(0, 0, 0) -- Black background
+    frame.Size = UDim2.new(0, 300, 0, 30)
+    frame.Position = UDim2.new(0, 0, 0, 30)
+    frame.Parent = notification
+
+    local textLabel = Instance.new("TextLabel")
+    textLabel.Text = "Paid key applied successfully!"
+    textLabel.TextColor3 = Color3.new(1, 1, 1) -- White text
+    textLabel.Font = Enum.Font.SourceSans
+    textLabel.FontSize = Enum.FontSize.Size24
+    textLabel.Parent = frame
+
+    -- Wait for 2 seconds before removing the notification
+    wait(2)
+    notification:Destroy()
+
+    print(txt)
+end)
+
+
+
+SmartprotectionSection:NewToggle("SmartProtectionV1", "Protect you from scams, and ban", function(state)
+    if state then
+        -- Create a notification
+        local notification = Instance.new("ScreenGui")
+        notification.Name = "SmartProtectionNotification"
+        notification.Parent = game.StarterGui
+
+        local frame = Instance.new("Frame")
+        frame.BackgroundColor3 = Color3.new(0, 0, 0) -- Black background
+        frame.Size = UDim2.new(0, 300, 0, 30)
+        frame.Position = UDim2.new(0, 0, 0, 30)
+        frame.Parent = notification
+
+        local textLabel = Instance.new("TextLabel")
+        textLabel.Text = "Smart Protection enabled!"
+        textLabel.TextColor3 = Color3.new(1, 1, 1) -- White text
+        textLabel.Font = Enum.Font.SourceSans
+        textLabel.FontSize = Enum.FontSize.Size24
+        textLabel.Parent = frame
+
+        -- Wait for 2 seconds before removing the notification
+        wait(2)
+        notification:Destroy()
+
+        print("Toggle On")
+    else
+        -- Create a notification
+        local notification = Instance.new("ScreenGui")
+        notification.Name = "SmartProtectionNotification"
+        notification.Parent = game.StarterGui
+
+        local frame = Instance.new("Frame")
+        frame.BackgroundColor3 = Color3.new(0, 0, 0) -- Black background
+        frame.Size = UDim2.new(0, 300, 0, 30)
+        frame.Position = UDim2.new(0, 0, 0, 30)
+        frame.Parent = notification
+
+        local textLabel = Instance.new("TextLabel")
+        textLabel.Text = "Smart Protection disabled."
+        textLabel.TextColor3 = Color3.new(1, 1, 1) -- White text
+        textLabel.Font = Enum.Font.SourceSans
+        textLabel.FontSize = Enum.FontSize.Size24
+        textLabel.Parent = frame
+
+        -- Wait for 2 seconds before removing the notification
+        wait(2)
+        notification:Destroy()
+
+        print("Toggle Off")
+    end
+end)
+
+
+AutofarmV1Section:NewToggle("AutofarmV1", "farm for you", function(state)
+    if state then
+        -- Create a notification
+        local notification = Instance.new("ScreenGui")
+        notification.Name = "AutofarmV1Notification"
+        notification.Parent = game.StarterGui
+
+        local frame = Instance.new("Frame")
+        frame.BackgroundColor3 = Color3.new(0, 0, 0) -- Black background
+        frame.Size = UDim2.new(0, 300, 0, 30)
+        frame.Position = UDim2.new(0, 0, 0, 30)
+        frame.Parent = notification
+
+        local textLabel = Instance.new("TextLabel")
+        textLabel.Text = "Autofarm enabled! Farming for you..."
+        textLabel.TextColor3 = Color3.new(1, 1, 1) -- White text
+        textLabel.Font = Enum.Font.SourceSans
+        textLabel.FontSize = Enum.FontSize.Size24
+        textLabel.Parent = frame
+
+        -- Wait for 2 seconds before removing the notification
+        wait(2)
+        notification:Destroy()
+
+        print("Toggle On")
+    else
+        -- Create a notification
+        local notification = Instance.new("ScreenGui")
+        notification.Name = "AutofarmV1Notification"
+        notification.Parent = game.StarterGui
+
+        local frame = Instance.new("Frame")
+        frame.BackgroundColor3 = Color3.new(0, 0, 0) -- Black background
+        frame.Size = UDim2.new(0, 300, 0, 30)
+        frame.Position = UDim2.new(0, 0, 0, 30)
+        frame.Parent = notification
+
+        local textLabel = Instance.new("TextLabel")
+        textLabel.Text = "Autofarm disabled."
+        textLabel.TextColor3 = Color3.new(1, 1, 1) -- White text
+        textLabel.Font = Enum.Font.SourceSans
+        textLabel.FontSize = Enum.FontSize.Size24
+        textLabel.Parent = frame
+
+        -- Wait for 2 seconds before removing the notification
+        wait(2)
+        notification:Destroy()
+
+        print("Toggle Off")
+    end
+end)
+
+
+
+SmartprotectionSection:NewSlider("ProtectionAggresivity", "1=bad protection 500=aggresive protection", 500, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    -- Create a notification
+    local notification = Instance.new("ScreenGui")
+    notification.Name = "ProtectionAggresivityNotification"
+    notification.Parent = game.StarterGui
+
+    local frame = Instance.new("Frame")
+    frame.BackgroundColor3 = Color3.new(0, 0, 0) -- Black background
+    frame.Size = UDim2.new(0, 300, 0, 30)
+    frame.Position = UDim2.new(0, 0, 0, 30)
+    frame.Parent = notification
+
+    local textLabel = Instance.new("TextLabel")
+    textLabel.Text = "Protection aggresivity set to ".. s.. "!"
+    textLabel.TextColor3 = Color3.new(1, 1, 1) -- White text
+    textLabel.Font = Enum.Font.SourceSans
+    textLabel.FontSize = Enum.FontSize.Size24
+    textLabel.Parent = frame
+
+    -- Wait for 2 seconds before removing the notification
+    wait(2)
+    notification:Destroy()
+end)
+    
+
+
+local colors = {
+    SchemeColor = Color3.fromRGB(255,255,255),
+    Background = Color3.fromRGB(0, 0, 0),
+    Header = Color3.fromRGB(0, 0, 0),
+    TextColor = Color3.fromRGB(255,255,255),
+    ElementColor = Color3.fromRGB(20, 20, 20)
+}
