@@ -1,107 +1,72 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library:CreateLib("Ps99Script by Midnight#9066", Color3.new(1, 1, 1))
+local Window = Library.CreateLib("Sapphire", colors)
 
-local notificationGui = Instance.new("ScreenGui")
-notificationGui.Name = "NotificationGui"
-notificationGui.Parent = game.CoreGui
-
-local notificationFrame = Instance.new("Frame")
-notificationFrame.BackgroundColor3 = Color3.new(0, 0, 0)
-notificationFrame.Size = UDim2.new(0, 300, 0, 30)
-notificationFrame.Position = UDim2.new(0, 0, 0, 30)
-notificationFrame.Parent = notificationGui
-
-local notificationText = Instance.new("TextLabel")
-notificationText.TextColor3 = Color3.new(1, 1, 1)
-notificationText.Font = Enum.Font.SourceSans
-notificationText.FontSize = Enum.FontSize.Size24
-notificationText.Parent = notificationFrame
-
-local notificationTween = game:GetService("TweenService"):Create(notificationFrame, TweenInfo.new(2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Position = UDim2.new(0, 0, 1, 0)})
-
-local function createNotification(text)
-    notificationText.Text = text
-    notificationFrame.Position = UDim2.new(0, 0, 0, 30)
-    notificationTween:Play()
-    wait(2)
-    notificationTween:Cancel()
-end
-
-local Tab = Window:NewTab("🐾PetDuping🔄")
-local mainSection = Tab:NewSection("PetDuping")
-
-local Tab = Window:NewTab("🧠SmartProtectionV1")
-local SmartprotectionSection = Tab:NewSection("Smartprotection")
-
-local Tab = Window:NewTab(" 🚜AutofarmV1 🚜")
-local AutofarmV1Section = Tab:NewSection("Autofarm")
-
-local Tab = Window:NewTab(" 💰PaidKey 💰")
-local PaidKeySection = Tab:NewSection("PaidKey")
-
-local Tab = Window:NewTab("NukeV1")
-local nukeSection = Tab:NewSection("💣Nuke💣")
-
-local Tab = Window:NewTab("GemsAutofarm")
-local GemsAutofarm = Tab:NewSection("GemsAutofarm")
-
-nukeSection:NewButton("Nuke", "Nuke the whole server", function()
-    createNotification("Nuking in progress...")
-    wait(3)
-    local player = game.Players.LocalPlayer
-    local placeId = game.PlaceId
-    print("Place ID:", placeId)
-    player:RejoinGameState(placeId, "AnotherServer")
-end)
-
+-- Create a draggable frame
 local DraggableFrame = Library.DraggableFrame("DraggableFrame", {
-    BackgroundColor3 = Color3.new(0, 0, 0),
+    BackgroundColor3 = colors.Background,
     Size = UDim2.new(0.5, 0, 0.5, 0),
     Position = UDim2.new(0.25, 0, 0.25, 0),
 })
+
+-- Add a tab to the draggable frame
+local Tab = DraggableFrame:NewTab("🐾PetDuping🐾")
+local mainSection = Tab:NewSection("PetDuping")
+
+-- Add a tab to the draggable frame
+local Tab = DraggableFrame:NewTab("🧠SmartProtectionV1🧠")
+local SmartprotectionSection = Tab:NewSection("Smartprotection")
+
+-- Add a tab to the draggable frame
+local Tab = DraggableFrame:NewTab("🌽AutofarmV1🌽")
+local AutofarmV1Section = Tab:NewSection("Autofarm")
+
+-- Add a tab to the draggable frame
+local Tab = DraggableFrame:NewTab("💰PaidKey💰")
+local PaidKeySection = Tab:NewSection("PaidKey")
+
+-- Add a minus button to the top-right corner of the draggable frame
 local MinusButton = DraggableFrame:NewButton("-", "Minimize the GUI", function()
     DraggableFrame:TweenPosition(UDim2.new(1, -50, 1, -50), "Out", "Quad", 0.5)
 end)
 MinusButton.Parent = DraggableFrame
 MinusButton.Position = UDim2.new(1, 0, 0, 0)
-DraggableFrame.Parent = game.CoreGui
 
-AutofarmV1Section:NewButton("Autofarm", "Automatically farm resources", function()
-    createNotification("Autofarm enabled")
-    wait(2)
-    createNotification("Autofarm disabled.")
-end)
-
+-- Add UI elements to the sections
 mainSection:NewButton("Dupe pet", "Dupes your pet (you need to have the pet you wanna dupe xD)", function()
-    createNotification("Pet duplicated successfully!")
     print("Clicked")
 end)
 
 PaidKeySection:NewTextBox("exemple : XED3-3DAS-D93D", "Put your paidkey here!", function(txt)
-    createNotification("Paid key applied successfully!")
     print(txt)
 end)
 
 SmartprotectionSection:NewToggle("SmartProtectionV1", "Protect you from scams, and ban", function(state)
     if state then
-        createNotification("Smart Protection enabled!")
         print("Toggle On")
     else
-        createNotification("Smart Protection disabled.")
         print("Toggle Off")
     end
 end)
 
 AutofarmV1Section:NewToggle("AutofarmV1", "farm for you", function(state)
     if state then
-        createNotification("Autofarm enabled! Farming for you...")
         print("Toggle On")
     else
-        createNotification("Autofarm disabled.")
         print("Toggle Off")
     end
 end)
 
-SmartprotectionSection:NewSlider("ProtectionAggresivity", "1=bad protection 500=aggresive protection", 500, 0, function(s)
-    createNotification("Protection aggresivity set to ".. s.. "!")
+SmartprotectionSection:NewSlider("ProtectionAggresivity", "1=bad protection 500=aggresive protection", 500, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    
 end)
+
+-- Add the draggable frame to the screen
+DraggableFrame.Parent = game.CoreGui
+
+local colors = {
+    SchemeColor = Color3.fromRGB(255,255,255),
+    Background = Color3.fromRGB(0, 0, 0),
+    Header = Color3.fromRGB(0, 0, 0),
+    TextColor = Color3.fromRGB(255,255,255),
+    ElementColor = Color3.fromRGB(20, 20, 20)
+}
