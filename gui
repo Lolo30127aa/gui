@@ -5,19 +5,19 @@ local Tab = Window:NewTab("🐾PetDuping🔄")
 local mainSection = Tab:NewSection("PetDuping")
 
 local Tab = Window:NewTab("🧠SmartProtectionV1")
-local SmartprotectionSection = Tab:NewSection("Smartprotection")
+local Smartprotection = Tab:NewSection("Smartprotection")
 
 local Tab = Window:NewTab(" 🚜AutofarmV1 🚜")
-local AutofarmV1Section = Tab:NewSection("Autofarm")
+local AutofarmV1 = Tab:NewSection("Autofarm")
 
 local Tab = Window:NewTab(" 💰PaidKey 💰")
-local PaidKeySection = Tab:NewSection("PaidKey")
+local PaidKey = Tab:NewSection("PaidKey")
 
 local Tab = Window:NewTab("NukeV1")
-local nukeSection = Tab:NewSection("💣Nuke💣")
+local nuke = Tab:NewSection("💣Nuke💣")
 
 local Tab = Window:NewTab("GemsAutofarm")
-local GemsSection = Tab:NewSection("GemsAutofarm")
+local GemsAutofarm = Tab:NewSection("GemsAutofarm")
 
 
 
@@ -75,7 +75,7 @@ DraggableFrame.Parent = game.CoreGui
 
 
 
-autofarmSection:NewButton("Autofarm", "Automatically farm resources", function()
+AutofarmV1Section:NewButton("Autofarm", "Automatically farm resources", function()
     -- Create a notification
     local notification = Instance.new("ScreenGui")
     notification.Name = "AutofarmNotification"
@@ -297,3 +297,4 @@ local colors = {
     TextColor = Color3.fromRGB(255,255,255),
     ElementColor = Color3.fromRGB(20, 20, 20)
 }
+
