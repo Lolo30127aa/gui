@@ -5,16 +5,16 @@ local Tab = Window:NewTab("🐾PetDuping🔄")
 local mainSection = Tab:NewSection("PetDuping")
 
 local Tab = Window:NewTab("🧠SmartProtectionV1")
-local Smartprotection = Tab:NewSection("Smartprotection")
+local SmartprotectionSection = Tab:NewSection("Smartprotection")
 
 local Tab = Window:NewTab(" 🚜AutofarmV1 🚜")
-local AutofarmV1 = Tab:NewSection("Autofarm")
+local AutofarmV1Section = Tab:NewSection("Autofarm")
 
 local Tab = Window:NewTab(" 💰PaidKey 💰")
-local PaidKey = Tab:NewSection("PaidKey")
+local PaidKeySection = Tab:NewSection("PaidKey")
 
 local Tab = Window:NewTab("NukeV1")
-local nuke = Tab:NewSection("💣Nuke💣")
+local nukeSection = Tab:NewSection("💣Nuke💣")
 
 local Tab = Window:NewTab("GemsAutofarm")
 local GemsAutofarm = Tab:NewSection("GemsAutofarm")
@@ -297,4 +297,5 @@ local colors = {
     TextColor = Color3.fromRGB(255,255,255),
     ElementColor = Color3.fromRGB(20, 20, 20)
 }
+
 
