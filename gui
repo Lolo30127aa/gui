@@ -1,5 +1,5 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("Ps99Script by Midnight#9066", colors)
+local Window = Library.CreateLib("Ps99Script by Midnight#9066", Color3.fromRGB(255, 255, 255))
 
 local notificationGui = Instance.new("ScreenGui")
 notificationGui.Name = "NotificationGui"
@@ -17,7 +17,7 @@ notificationText.Font = Enum.Font.SourceSans
 notificationText.FontSize = Enum.FontSize.Size24
 notificationText.Parent = notificationFrame
 
-local notificationTween = TweenService:Create(notificationFrame, TweenInfo.new(2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Position = UDim2.new(0, 0, 1, 0)})
+local notificationTween = game:GetService("TweenService"):Create(notificationFrame, TweenInfo.new(2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Position = UDim2.new(0, 0, 1, 0)})
 
 local function createNotification(text)
     notificationText.Text = text
@@ -42,22 +42,23 @@ local PaidKeySection = Tab:NewSection("PaidKey")
 local Tab = Window:NewTab("NukeV1")
 local nukeSection = Tab:NewSection("💣Nuke💣")
 
-
+local Tab = Window:NewTab("GemsAutofarm")
+local GemsAutofarm = Tab:NewSection("GemsAutofarm")
 
 nukeSection:NewButton("Nuke", "Nuke the whole server", function()
     createNotification("Nuking in progress...")
     wait(3)
     local player = game.Players.LocalPlayer
     local placeId = game.PlaceId
+    print("Place ID:", placeId)
     player:RejoinGameState(placeId, "AnotherServer")
 end)
 
 local DraggableFrame = Library.DraggableFrame("DraggableFrame", {
-    BackgroundColor3 = colors.Background,
+    BackgroundColor3 = Color3.fromRGB(0, 0, 0),
     Size = UDim2.new(0.5, 0, 0.5, 0),
     Position = UDim2.new(0.25, 0, 0.25, 0),
 })
-
 local MinusButton = DraggableFrame:NewButton("-", "Minimize the GUI", function()
     DraggableFrame:TweenPosition(UDim2.new(1, -50, 1, -50), "Out", "Quad", 0.5)
 end)
